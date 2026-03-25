@@ -1,0 +1,16 @@
+{
+  "name": "learning",
+  "description": "Guided learning through hands-on projects. Teacher mode — explains why before how, checks understanding.",
+  "type": "skill",
+  "files": [
+    "skills/learning/SKILL.md"
+  ],
+  "directories": [
+    "skills/learning/projects"
+  ],
+  "route": {
+    "trigger": "Learning, \"teach me\", \"help me understand\", skill building",
+    "target": "learning"
+  },
+  "postInstall": "Say 'help me learn [topic]' to start a guided learning project."
+}

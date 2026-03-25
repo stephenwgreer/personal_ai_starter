@@ -1,0 +1,10 @@
+{
+  "name": "boardroom",
+  "description": "Personal advisory board — 19 world-class thinkers deliberate on your decisions.",
+  "type": "command",
+  "files": [
+    "commands/boardroom.md"
+  ],
+  "directories": [],
+  "postInstall": "Use /boardroom or say 'ask the board' followed by your question."
+}

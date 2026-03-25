@@ -1,0 +1,17 @@
+{
+  "name": "research",
+  "description": "Multi-source research and synthesis. Deep dives, competitive intelligence, and structured reports.",
+  "type": "skill",
+  "files": [
+    "skills/research/SKILL.md"
+  ],
+  "directories": [
+    "skills/research/data",
+    "history/research"
+  ],
+  "route": {
+    "trigger": "\"Research [topic]\", \"find info about\", \"investigate\"",
+    "target": "research"
+  },
+  "postInstall": "Say 'research [topic]' to start. Reports are saved to history/research/."
+}

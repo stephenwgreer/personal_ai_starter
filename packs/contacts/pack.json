@@ -1,0 +1,12 @@
+{
+  "name": "contacts",
+  "description": "Professional contact management — add, search, update, and track your network.",
+  "type": "command",
+  "files": [
+    "commands/contacts.md"
+  ],
+  "directories": [
+    "data"
+  ],
+  "postInstall": "Use /contacts add [name] to start building your contact database."
+}

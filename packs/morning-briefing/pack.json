@@ -1,0 +1,10 @@
+{
+  "name": "morning-briefing",
+  "description": "Daily planning tied to your goals, active projects, and overdue items.",
+  "type": "command",
+  "files": [
+    "commands/morning-briefing.md"
+  ],
+  "directories": [],
+  "postInstall": "Use /morning-briefing to start your day. Works best after PROFILE goals are set up."
+}

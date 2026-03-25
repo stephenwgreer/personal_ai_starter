@@ -1,0 +1,54 @@
+# Cron Jobs
+# daemon.ts reads this file every minute and decides what to run.
+# Uncomment and configure the jobs you want.
+
+jobs:
+  # ── Morning Briefing ──────────────────────────────────
+  # Summarizes goals, overdue items, and today's focus.
+  # Sends to Discord if there's anything to report.
+  #
+  # morning-briefing:
+  #   name: "Morning Briefing"
+  #   schedule: "0 7 * * 1-5"          # 7 AM weekdays
+  #   timezone: "America/New_York"      # Change to your timezone
+  #   enabled: false
+  #   steps:
+  #     - type: claude-code
+  #       prompt_file: "HEARTBEAT.md"
+  #       system_prompt: "You are the user's AI assistant. Be concise."
+  #       allowed_tools: [Bash, Read, Write, Glob, Grep, WebSearch]
+  #       model: "sonnet"
+  #       timeout: 90
+  #     - type: notify
+  #       channel_id: "your-discord-channel-id"
+  #       only_if_not: "NOTHING_TO_REPORT"
+
+  # ── Reminder Checker ──────────────────────────────────
+  # Checks for due reminders every minute.
+  #
+  # reminder-check:
+  #   name: "Reminder Check"
+  #   schedule: "* * * * *"
+  #   timezone: "America/New_York"
+  #   enabled: false
+  #   steps:
+  #     - type: script
+  #       run: "bun run .claude/cron/check-reminders.ts"
+  #       timeout: 30
+
+  # ── Weekly Review ─────────────────────────────────────
+  # Scans the last 7 days of session history, extracts patterns,
+  # and promotes learnings to history/learnings/.
+  #
+  # weekly-review:
+  #   name: "Weekly Review"
+  #   schedule: "0 9 * * 1"            # Monday 9 AM
+  #   timezone: "America/New_York"
+  #   enabled: false
+  #   steps:
+  #     - type: script
+  #       run: "bun run .claude/scripts/weekly-review.ts"
+  #       timeout: 120
+  #     - type: notify
+  #       channel_id: "your-discord-channel-id"
+  #       only_if_not: "NO_INSIGHTS"

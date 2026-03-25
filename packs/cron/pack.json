@@ -1,0 +1,15 @@
+{
+  "name": "cron",
+  "description": "Background job scheduler — morning briefings, price alerts, reminders, and more.",
+  "type": "infrastructure",
+  "files": [
+    "cron/daemon.ts",
+    "cron/jobs.yaml",
+    "cron/HEARTBEAT.md",
+    "cron/README.md"
+  ],
+  "directories": [
+    "cron/runs"
+  ],
+  "postInstall": "Edit .claude/cron/jobs.yaml to configure jobs, then start the daemon: nohup bun run .claude/cron/daemon.ts &"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "career",
+  "description": "Job search automation, resume/cover letter generation, application tracking, and career strategy.",
+  "type": "skill",
+  "files": [
+    "skills/career/SKILL.md",
+    "skills/career/workflows/job-search.md",
+    "skills/career/workflows/resume-tailoring.md",
+    "skills/career/workflows/application-tracking.md"
+  ],
+  "directories": [
+    "skills/career/data"
+  ],
+  "route": {
+    "trigger": "Jobs, resume, cover letter, career, applications",
+    "target": "career"
+  },
+  "postInstall": "Create your master resume in .claude/skills/career/data/META_RESUME.md and target companies in data/job-targets.json."
+}

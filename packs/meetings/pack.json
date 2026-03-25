@@ -1,0 +1,22 @@
+{
+  "name": "meetings",
+  "description": "Meeting intelligence — live capture, structured extraction, action item tracking, and daily standup.",
+  "type": "skill",
+  "files": [
+    "skills/meetings/SKILL.md",
+    "skills/meetings/workflows/meeting-prep.md",
+    "skills/meetings/workflows/meeting-start.md",
+    "skills/meetings/workflows/meeting-end.md",
+    "skills/meetings/workflows/standup.md"
+  ],
+  "directories": [
+    "skills/meetings/data",
+    "skills/meetings/inbox",
+    "skills/meetings/series"
+  ],
+  "route": {
+    "trigger": "Meeting notes, standup, action items, meeting prep",
+    "target": "meetings"
+  },
+  "postInstall": "Say 'start meeting' to begin capturing. Action items are tracked in .claude/skills/meetings/data/action-items.jsonl."
+}

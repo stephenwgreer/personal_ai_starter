@@ -1,0 +1,18 @@
+{
+  "name": "blog",
+  "description": "Content creation pipeline. Idea capture, development, voice-matched drafting, and quality review.",
+  "type": "skill",
+  "files": [
+    "skills/blog/SKILL.md"
+  ],
+  "directories": [
+    "skills/blog/ideas",
+    "skills/blog/data",
+    "history/blog/drafts"
+  ],
+  "route": {
+    "trigger": "Blog, content, \"write article\", \"capture idea\"",
+    "target": "blog"
+  },
+  "postInstall": "Share 2-3 writing samples so your AI can learn your voice. Store in .claude/skills/blog/data/voice-profile.md."
+}

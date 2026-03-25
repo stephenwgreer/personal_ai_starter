@@ -1,0 +1,54 @@
+# Environment and secrets
+.claude/.env
+.claude/.env.local
+.env
+.env.local
+.mcp.json
+
+# Machine-specific settings
+.claude/settings.local.json
+
+# Skill data directories (personal data — never commit)
+.claude/skills/*/data/
+.claude/data/
+
+# Memory (machine-local, auto-managed)
+# Note: ~/.claude/projects/*/memory/ is outside this repo
+
+# Python virtual environments
+.venv/
+*venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+bun.lockb
+
+# Cron state (auto-generated)
+.claude/cron/.state.json
+.claude/cron/runs/
+
+# Scratchpad (daily notes, not for version control)
+scratchpad/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+*~
+
+# IDE
+.vscode/
+.idea/
+
+# Archives and backups
+*_ARCHIVED/
+*old/
+*.bak
+backups/
+
+# Large files
+*.zip
+*.tar.gz
+*.pptx
+*.docx

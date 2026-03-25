@@ -1,0 +1,13 @@
+{
+  "name": "rules",
+  "description": "Context-specific behavior rules — code quality, career mode, writing mode, and a guide for creating your own.",
+  "type": "infrastructure",
+  "files": [
+    "rules/README.md",
+    "rules/code-quality.md",
+    "rules/career-mode.md",
+    "rules/writing-mode.md"
+  ],
+  "directories": [],
+  "postInstall": "Rules auto-load based on context. Read .claude/rules/README.md to learn how to create your own."
+}
