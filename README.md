@@ -12,10 +12,15 @@ Clone this repo. Open Claude Code. Say "Run the onboarding." Your AI walks you t
 
 ## Quick Start
 
-```bash
-git clone https://github.com/YOUR_USERNAME/personal-ai-starter.git my-ai
-cd my-ai
-claude
+```powershell
+PS C:\Users\stwgre> git clone https://github.com/stephenwgreer/personal_ai_starter.git Roma
+Cloning into 'Roma'...
+remote: Enumerating objects: 91, done.
+remote: Counting objects: 100% (91/91), done.
+remote: Compressing objects: 100% (76/76), done.
+remote: Total 91 (delta 0), reused 91 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (91/91), 46.24 KiB | 2.01 MiB/s, done.
+PS C:\Users\stwgre>
 ```
 
 Then say:

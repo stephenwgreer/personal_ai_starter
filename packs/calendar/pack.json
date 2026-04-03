@@ -1,0 +1,14 @@
+{
+  "name": "calendar",
+  "description": "Google Calendar sync, tiered reminders for birthdays and important dates, and event management via your AI's own Google account.",
+  "type": "infrastructure",
+  "files": [
+    "cron/calendar-sync.ts",
+    "cron/CALENDAR_DIGEST.md",
+    "cron/calendar-README.md"
+  ],
+  "directories": [
+    "data/calendar"
+  ],
+  "postInstall": "1. Create a Google Cloud project and enable Calendar API.\n2. Create a service account, share your calendar with it (or use an AI email like darin.my.pa@gmail.com).\n3. Download the credentials JSON to .claude/data/calendar/credentials.json.\n4. Add calendar-sync and calendar-digest jobs to .claude/cron/jobs.yaml.\n5. See .claude/cron/calendar-README.md for the full walkthrough."
+}
