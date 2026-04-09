@@ -1,0 +1,23 @@
+{
+  "name": "automation",
+  "description": "Background automation — morning briefings, alerts, monitoring. Runs your AI on a schedule with two modes: full (API key) or lite (subscription).",
+  "type": "infrastructure",
+  "files": [
+    "automation/daemon.ts",
+    "automation/jobs.yaml",
+    "automation/prompts/HEARTBEAT.md",
+    "automation/sidecar/__init__.py",
+    "automation/sidecar/cli.py",
+    "automation/sidecar/runner.py",
+    "automation/sidecar/budget.py",
+    "automation/sidecar/state.py",
+    "automation/sidecar/config.py",
+    "automation/run-sidecar.py",
+    "automation/README.md"
+  ],
+  "directories": [
+    "automation/runs",
+    "automation/sidecar"
+  ],
+  "postInstall": "Run the setup: open Claude Code and say 'configure automation'. Choose Full mode (API key) or Lite mode (subscription) — see .claude/automation/README.md for trade-offs."
+}
