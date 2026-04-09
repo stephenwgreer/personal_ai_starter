@@ -52,9 +52,9 @@ After they choose, immediately:
 
 **Step 3: Personality calibration.**
 
-Ask the user to rate each trait on a 1-5 scale. Present this as a quick calibration — not a quiz:
+Present each trait with its 1-5 spectrum. Tell the user they can just feed you the five numbers in sequence — no special formatting needed.
 
-"I'm going to calibrate how I communicate with you. Rate each of these 1-5:"
+"I'm going to calibrate how I communicate with you. For each trait below, pick a number 1-5. You can just give me all five numbers in a row (e.g. '4 3 5 2 4')."
 
 | Trait | 1 | 5 |
 |-------|---|---|
@@ -65,17 +65,25 @@ Ask the user to rate each trait on a 1-5 scale. Present this as a quick calibrat
 | Risk tolerance | Conservative, safe suggestions | Bold, challenge my assumptions |
 
 Then ask:
-- "Anything you want me to NEVER do?"
-- "Anything you want me to ALWAYS do?"
+- "Is there anything you want me to NEVER do? For example: never sugarcoat bad news, never make changes to code without asking first, never send messages on my behalf without confirmation, never add emoji to responses, never over-explain things I already know."
+- "Anything you want me to ALWAYS do? For example: always push back if you think I'm wrong, always show your reasoning before giving a recommendation, always check existing files before creating new ones, always ask before taking irreversible actions."
 
-**Step 4: Create identity files.**
+**Step 4: Tools and platforms.**
+
+Ask: "If you code, what languages and tools do you use? If you don't code, what platforms do you typically use — for productivity, note-taking, email, calendar, project management, that kind of thing?"
+
+Store their answer for two purposes:
+1. Populating the Stack section of CLAUDE.md
+2. Suggesting MCP server integrations in Phase 4 (Step 14)
+
+**Step 5: Create identity files.**
 
 Using everything gathered, create these two files:
 
 1. **`CLAUDE.md`** (overwrite the template) — Under 100 lines. Include:
    - Identity section with their name, role, location, focus
    - Response preferences derived from their personality scores
-   - Stack preferences (ask: "Do you code? If so, what languages and tools do you use?" — if they don't code, skip this section)
+   - Stack/tools preferences (from their answer about languages, tools, and platforms)
    - Skill routing table (leave placeholder rows — populated in Phase 3)
    - Values derived from personality calibration
    - Standard constraints
@@ -93,7 +101,7 @@ Show both files to the user. Ask: "How does this feel? Anything to adjust?"
 
 ### Phase 2: Profile
 
-**Step 5: Mission.**
+**Step 6: Mission.**
 
 Ask: "Forget job titles and money for a second. If you're looking back on your life in 10 years and feeling proud — what did you actually do? What matters to you beyond work?"
 
@@ -102,28 +110,44 @@ Follow up with 2-3 probing questions based on their answer. Go deeper. Then crea
 
 Show the draft. Ask them to refine. This is personal — get it right.
 
-**Step 6: Goals.**
+**Step 7: Goals.**
 
-Ask: "What are the 3-5 main things you're trying to accomplish right now? For each one, what's the rough timeframe?"
+Ask: "What are the 3-5 main things you're trying to accomplish right now? For each one, what's the rough timeframe? These can be work goals, personal goals, or a mix. For example:
+
+- **Work**: Get promoted to senior engineer, launch a product by Q3, transition into management, land a new job in a different industry
+- **Personal**: Get healthier, learn a new skill, build a side project, get better at managing your time, finally tackle a big goal you've been putting off
+
+Don't overthink it — what are the things that, if you made real progress on them in the next few months, you'd feel great about?"
 
 Create:
 - **`.claude/PROFILE/GOALS.md`** — Numbered goals (G1, G2...) with timeframes and outcomes.
 
-**Step 7: Challenges.**
+**Step 8: Challenges.**
 
-Ask: "What gets in the way? What patterns do you fall into that work against you? Be honest — this stays in your local files, and I need to know in order to actually help."
+Ask: "What gets in the way? What patterns do you fall into that work against you? Be honest — this stays in your local files, and I need to know in order to actually help.
+
+Some common ones people share:
+- Overcommitting and then dropping balls
+- Spending too much time on low-priority tasks and avoiding the hard stuff
+- Analysis paralysis — researching endlessly instead of starting
+- Poor follow-through on plans that start strong
+- Calendar chaos — meetings eat the day, no deep work blocks
+- Procrastinating on things that feel ambiguous or uncomfortable
+- Saying yes to everything and losing focus on what actually matters
+
+Any of those hit? Or something else entirely?"
 
 Create:
 - **`.claude/PROFILE/CHALLENGES.md`** — Numbered challenges (C1, C2...) linked to which goals they block.
 
-**Step 8: Strategies.**
+**Step 9: Strategies.**
 
 Based on their goals and challenges, draft strategies yourself. Present them: "Here's how I'd approach your challenges. What would you change?"
 
 Create:
 - **`.claude/PROFILE/STRATEGIES.md`** — Numbered strategies linked to challenges.
 
-**Step 9: Scoreboard.**
+**Step 10: Scoreboard.**
 
 Create:
 - **`.claude/PROFILE/SCOREBOARD.md`** — Initialize with any projects mentioned during setup.
@@ -132,7 +156,7 @@ Create:
 
 ### Phase 3: Skills & Packs
 
-**Step 10: Choose capabilities.**
+**Step 11: Choose capabilities.**
 
 Ask: "What are the main areas you want AI help with? For example: career, writing, research, learning, meetings, decision-making, daily planning, contact management — or something else entirely."
 
@@ -151,7 +175,7 @@ Present their matches like this:
 
 Ask: "Look right? Anything to add or remove?"
 
-**Step 11: Install packs.**
+**Step 12: Install packs.**
 
 For each confirmed pack, install it yourself by:
 
@@ -163,7 +187,7 @@ For each confirmed pack, install it yourself by:
 After installing all packs, show the user what was installed:
 "Installed 4 packs: career, learning, boardroom, morning-briefing. Your routing table is updated."
 
-**Step 12: Populate skill data.**
+**Step 13: Populate skill data.**
 
 For each installed skill pack, walk the user through initial data:
 
@@ -187,7 +211,7 @@ For other packs, just confirm installation — data gets populated through use.
 
 ### Phase 4: Automation (Optional)
 
-**Step 13: Hooks check.**
+**Step 14: Hooks check.**
 
 The hooks are already in place. Run these tests silently:
 
@@ -200,15 +224,45 @@ If they work, say: "Hooks are working — I'll capture session summaries automat
 
 If they fail, troubleshoot (usually a bun path issue).
 
-**Step 14: Background automation.**
+**Step 15: Background automation.**
 
-Ask: "Do you want me to do things in the background — like morning briefings, deadline reminders, or price alerts? This requires the cron pack and optionally a Discord webhook for notifications."
+Give a quick overview of what automation can do, with concrete examples:
 
-If yes:
-1. Install the cron pack (same process as Step 11)
-2. Ask if they have a Discord webhook URL → add to `.claude/.env`
+"I'm really good at automating things you might want done in the background without having to ask. For example:
+
+- **Morning briefings** — I review your calendar, goals, and open tasks and send you a focused daily plan before you start work
+- **Job monitoring** — I check career pages at your target companies for new postings and alert you when something matches
+- **Investment alerts** — I track price targets, momentum signals, or earnings dates and flag when something needs attention
+- **Deadline reminders** — I watch your goals and projects and nudge you when something is due or slipping
+- **Email/calendar digests** — I summarize what's coming up and what needs a response
+- **Recurring research** — I check for news, updates, or changes on topics you care about on a schedule
+
+This runs on a cron daemon — a background process that kicks off tasks on a schedule. It requires the cron pack and optionally a Discord bot or webhook for notifications so I can reach you outside this terminal."
+
+If they're interested:
+1. Install the cron pack (same process as Step 12)
+2. Ask if they have a Discord webhook URL or bot token → add to `.claude/.env`
 3. Help them configure 1-2 starter jobs in `.claude/cron/jobs.yaml`
 4. Explain how to start the daemon: `nohup bun run .claude/cron/daemon.ts &`
+
+**Step 16: MCP integrations.**
+
+Based on the tools and platforms the user shared in Step 4, suggest relevant MCP (Model Context Protocol) server integrations. These let the AI read and write to external services directly.
+
+Examples of what to suggest based on their answers:
+- **Google Calendar / Gmail** → Google Calendar MCP, Gmail MCP
+- **Notion** → Notion MCP
+- **Slack / Discord** → Slack MCP, Discord MCP
+- **GitHub** → GitHub MCP (or just `gh` CLI)
+- **Linear / Jira** → respective MCP servers
+- **Obsidian / markdown notes** → filesystem access is usually enough
+
+For each suggested MCP:
+1. Explain what it enables ("This would let me read your calendar and create events for you directly")
+2. Provide setup instructions or link to the MCP server repo
+3. Help them add the configuration to `.claude/settings.json` if they want to set it up now
+
+Say: "You don't have to set these up now — you can always add them later. But connecting your key tools is what turns this from a chatbot into something that actually works for you."
 
 If no, skip entirely.
 
@@ -216,7 +270,7 @@ If no, skip entirely.
 
 ### Phase 5: Verification
 
-**Step 15: Summary.**
+**Step 17: Summary.**
 
 Present a summary of everything that was set up:
 
@@ -233,7 +287,7 @@ Then say:
 
 "That's the foundation. Start a fresh session (type /clear) and I'll come back knowing who you are, what you're working on, and how to help. The system grows from here — every session I learn more, and you can add packs anytime by running `./install-pack.sh --list`."
 
-**Step 16: First test.**
+**Step 18: First test.**
 
 Ask: "Want to try something? Ask me to help with one of the domains you set up — like 'help me with my resume' or 'what should I focus on today?' — and I'll show you how routing works."
 
