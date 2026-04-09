@@ -260,7 +260,7 @@ case "${1:-}" in
         echo -e "  ${BOLD}Examples:${NC}"
         echo -e "    ./install-pack.sh career"
         echo -e "    ./install-pack.sh boardroom"
-        echo -e "    ./install-pack.sh cron"
+        echo -e "    ./install-pack.sh automation"
         echo ""
         ;;
     *)

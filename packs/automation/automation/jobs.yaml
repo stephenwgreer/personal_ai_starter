@@ -1,0 +1,81 @@
+# Automation Jobs
+# daemon.ts reads this file every minute and decides what to run.
+# Uncomment and configure the jobs you want.
+#
+# Step types:
+#   sidecar     — Full Mode (API key). Full tool/skill/MCP access.
+#   claude-code — Lite Mode (subscription). No tools, prompt-only.
+#   script      — Run a shell command.
+#   notify      — Send output to Discord.
+
+jobs:
+  # ── Heartbeat (Full Mode) ────────────────────────────────
+  # Checks goals, overdue items, stalled projects.
+  # Requires: ANTHROPIC_API_KEY in .env
+  #
+  # heartbeat:
+  #   name: "Heartbeat"
+  #   schedule: "*/30 5-20 * * 1-5"     # Every 30 min, 5 AM-8 PM weekdays
+  #   timezone: "America/New_York"       # Change to your timezone
+  #   enabled: false
+  #   steps:
+  #     - type: sidecar
+  #       prompt_file: "prompts/HEARTBEAT.md"
+  #       model: "haiku"
+  #       max_turns: 10
+  #       timeout: 180
+  #     - type: notify
+  #       only_if_not: "NOTHING_TO_REPORT"
+
+  # ── Morning Briefing (Full Mode) ─────────────────────────
+  # Reads your goals, calendar, tasks and sends a focused daily plan.
+  # Requires: ANTHROPIC_API_KEY in .env
+  #
+  # morning-briefing:
+  #   name: "Morning Briefing"
+  #   schedule: "0 7 * * 1-5"           # 7 AM weekdays
+  #   timezone: "America/New_York"
+  #   enabled: false
+  #   steps:
+  #     - type: sidecar
+  #       prompt_file: "prompts/BRIEFING.md"
+  #       model: "sonnet"
+  #       max_turns: 15
+  #       timeout: 300
+  #     - type: notify
+  #       only_if_not: "NOTHING_TO_REPORT"
+
+  # ── Simple Digest (Lite Mode) ────────────────────────────
+  # Script fetches data, Claude summarizes it. No API key needed.
+  #
+  # news-digest:
+  #   name: "News Digest"
+  #   schedule: "0 8 * * 1-5"           # 8 AM weekdays
+  #   timezone: "America/New_York"
+  #   enabled: false
+  #   steps:
+  #     - type: script
+  #       run: "echo 'Replace this with your data-fetching command'"
+  #       timeout: 30
+  #     - type: claude-code
+  #       prompt: "Summarize the following in 3 concise bullets."
+  #       model: "haiku"
+  #       timeout: 60
+  #     - type: notify
+
+  # ── Weekly Review ────────────────────────────────────────
+  # Scans session history, extracts patterns, promotes learnings.
+  #
+  # weekly-review:
+  #   name: "Weekly Review"
+  #   schedule: "0 9 * * 1"             # Monday 9 AM
+  #   timezone: "America/New_York"
+  #   enabled: false
+  #   steps:
+  #     - type: sidecar
+  #       prompt_file: "prompts/WEEKLY_REVIEW.md"
+  #       model: "sonnet"
+  #       max_turns: 15
+  #       timeout: 300
+  #     - type: notify
+  #       only_if_not: "NO_INSIGHTS"

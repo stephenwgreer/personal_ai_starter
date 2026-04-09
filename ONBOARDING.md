@@ -237,13 +237,23 @@ Give a quick overview of what automation can do, with concrete examples:
 - **Email/calendar digests** — I summarize what's coming up and what needs a response
 - **Recurring research** — I check for news, updates, or changes on topics you care about on a schedule
 
-This runs on a cron daemon — a background process that kicks off tasks on a schedule. It requires the cron pack and optionally a Discord bot or webhook for notifications so I can reach you outside this terminal."
+This runs on an automation daemon — a background process that kicks off tasks on a schedule. There are two ways it can work:"
+
+Present the two modes:
+
+"**Full Mode** — I use the Anthropic API to run with full access to all my tools, skills, and integrations. This costs money on top of your subscription, but it's cheap — the default model is Haiku, which typically costs $0.01-0.03 per run. A built-in daily budget cap (default $5) keeps it predictable. You'd need an API key from platform.claude.com.
+
+**Lite Mode** — I use your existing Claude subscription via the CLI. No extra cost. But I run without tools or skills — I can only work with whatever text gets fed into my prompt. Good for simple tasks where a script fetches data and I just summarize or decide."
+
+Ask: "Do you want to set up automation? If so, Full Mode, Lite Mode, or both?"
 
 If they're interested:
-1. Install the cron pack (same process as Step 12)
-2. Ask if they have a Discord webhook URL or bot token → add to `.claude/.env`
-3. Help them configure 1-2 starter jobs in `.claude/cron/jobs.yaml`
-4. Explain how to start the daemon: `nohup bun run .claude/cron/daemon.ts &`
+1. Install the automation pack (same process as Step 12)
+2. **If Full Mode**: Ask for their Anthropic API key → add `ANTHROPIC_API_KEY=...` to `.claude/.env`. Explain they can get one at platform.claude.com. Help them verify: `python -c "import claude_agent_sdk; print('OK')"`
+3. **If Lite Mode**: Verify `claude --print --version` works (they need to be logged in via `claude login`)
+4. Ask if they have a Discord webhook URL or bot token for notifications → add to `.claude/.env`
+5. Help them configure 1-2 starter jobs in `.claude/automation/jobs.yaml` (using `sidecar` steps for Full Mode, `claude-code` steps for Lite Mode)
+6. Explain how to start the daemon: `nohup bun run .claude/automation/daemon.ts &`
 
 **Step 16: MCP integrations.**
 
